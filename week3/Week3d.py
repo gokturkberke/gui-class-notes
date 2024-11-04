@@ -11,6 +11,6 @@ label3 = tk.Label(win, text="Label 3", bg="blue", fg="white")
 
 label1.grid(row=0, column=0)
 label2.grid(row=1, column=2)
-label3.grid(row=2, column=1)
+label3.grid(row=2, column=1) #2.satir 1.sutun 
 
 win.mainloop()
