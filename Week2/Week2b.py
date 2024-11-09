@@ -9,10 +9,10 @@ list2 = ["Red", 17, False, "Python"]
 # print(list2[2:])
 # print(list2[-1])
 # print(list2[-2])
-# print(list2[0:-1]) -> red 17 false python
+#print(list2[0:-1]) # red 17 false 
 
 list2[3] = 6
-# print(list2) -> red 17 false python
+# print(list2) -> red 17 false 6
 
 list2.append("Apple")
 list2.insert(3, True) #list2nin 3. indexine true degeri ekler -> red 17 false true 6 apple

@@ -16,6 +16,6 @@ label1 = tk.Label(win, text="Click the button to generate a number!") #baslangic
 label1.pack() #etiketi pencereye ekler ve yerlestirir
 
 button1 = tk.Button(win, text="Generate Random Number", command=click_handler) 
-button1.pack() #command click handler butona tiklanildiginda click handler fonksiyonunun caslimasini saglar
+button1.pack() #command click handler butona tiklanildiginda click handler fonksiyonunun calismasini saglar
 #button1.pack butonu pencereye ekler ve yerlestirir
 win.mainloop() #donguyu baslatir

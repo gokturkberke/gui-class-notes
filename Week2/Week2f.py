@@ -5,7 +5,7 @@ win.title("Week 2")
 win.iconbitmap("python.ico")
 win.geometry("300x300+100+100")
 win.resizable(False, False) #pencere boyutu degistirilemez
-
+#birinci false yatayda ikinci false dikeyde degistirelemeyecegini soyler
 label1 = tk.Label(win, text="Label 1", bg="red", fg="white") #yazi rengi beyaz arka plan kirmizi
 label2 = tk.Label(win, text="Label 2", bg="green", fg="#ffffff")
 label3 = tk.Label(win, text="Label 3", bg="blue", fg="white")
