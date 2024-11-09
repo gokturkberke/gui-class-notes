@@ -22,7 +22,7 @@ tab2.pack()
 notebook1.add(tab1, text="Tab 1")
 notebook1.add(tab2, text="Tab 2")
 
-scrolled_text1 = ScrolledText(tab1, width=30, height=10, wrap="char")  #Metin alani ekler(wrap="word" metnin kelimelere gore satir sonunda kaydirilmasiin saglar) none, char, word
+scrolled_text1 = ScrolledText(tab1, width=30, height=10, wrap="word")  #Metin alani ekler(wrap="word" metnin kelimelere gore satir sonunda kaydirilmasiin saglar) none, char, word
 scrolled_text1.pack(fill="both") #mevcutolan tum alani doldurcak skeilde yerlestirilir
 
 label1 = ttk.Label(tab2, text="This is tab 2.")
