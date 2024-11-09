@@ -10,16 +10,18 @@ win.iconbitmap("python.ico")
 menubar = tk.Menu(win)
 win.configure(menu=menubar)
 
-file_menu = tk.Menu(menubar, tearoff=False)
-file_menu.add_command(label="New", accelerator="Ctrl+N", underline=0)
-file_menu.add_command(label="Open...", underline=0)
-file_menu.add_separator()
-file_menu.add_command(label="Exit", command=win.destroy, underline=1)
+file_menu = tk.Menu(menubar, tearoff=False) #file menusunu olusturur ve menuden bagimsiz yeni bir pencere acmasini engeller kullanicinin
+file_menu.add_command(label="New", accelerator="Ctrl+N", underline=0) # new komutunu file menusune ekler ve accelerator kodu ile ctrl +n tuslarina basildiginda new komutunun calisacagini belirtir
+file_menu.add_command(label="Open...", underline=0) #open... komutunu file menusune ekler alti cizili yapmaz
+file_menu.add_separator() #menu ogeleri arasina bir yatay cizgi yerlestirir
+file_menu.add_command(label="Exit", command=win.destroy, underline=1) #exit ekler e harfini alti cizili yapar ve kullanici buna tikaldiginda pencerenin kapanmasini saglar
 
-help_menu = tk.Menu(menubar, tearoff=False)
-help_menu.add_command(label="About...")
+help_menu = tk.Menu(menubar, tearoff=False) #help menusu olusturur
+help_menu.add_command(label="About...") #help menusune about komutu eklenmesini saglar
 
 menubar.add_cascade(label="File", menu=file_menu, underline=0)
-menubar.add_cascade(label="Help", menu=help_menu)
-
+menubar.add_cascade(label="Help", menu=help_menu) #underline=0  yazmadigimiz icin otomatik olarak h nin altini cizer(windowsta)
+#bu iki satirin amaci menu cubuguna file ve help menulerini eklemektir bu satir olmamasi durumunda menuler eklenmez
+#label = file kodu file metni menu basligi olarak gorunur
+#menu=file_menu kodu ise file menusunun icinde hangi seceneklerin yer alacagini belirtir (file_menuyu daha once olusturduk icinde new open gbibi komutlari barindirir)
 win.mainloop()
