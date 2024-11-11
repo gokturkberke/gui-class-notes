@@ -13,11 +13,11 @@ class Person:
         return self.full_name()
 
 
-class Student(Person):
+class Student(Person): #inheritance student sinifinin person sinifinin tum ozellikleri ve metodlarini alir
 
     def __init__(self, first, last, gpa):
-        super().__init__(first, last)
-        self.gpa = gpa
+        super().__init__(first, last) #super kodu  miras alınan (inheritance) sınıfın __init__ metodunu çağırmak için kullanılır. 
+        self.gpa = gpa #gpa parametresi ekledik
 
     def __str__(self):
         return f"Student: {super().__str__()}\n -- GPA: {self.gpa}"

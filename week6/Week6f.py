@@ -6,11 +6,11 @@ class Person:
         self.first = first
         self.last = last
 
-    @property
-    def full_name(self):
+    @property #@property dekoratörüyle full_name bir özellik (attribute) gibi davranır. Bu, dışarıdan full_name'a fonksiyon çağrısı yapmadan erişilmesini sağlar.
+    def full_name(self): 
         return f"{self.first} {self.last}"
 
-    @full_name.setter
+    @full_name.setter #@full_name.setter dekoratörü, full_name'a bir değer atandığında çalışan metodu belirtir. Bu metod, verilen tam ismi (örneğin "Olivia Ross") ikiye ayırarak, first ve last isimlerini ayrı ayrı atar.
     def full_name(self, name):
         first, last = name.split(" ")
         self.first = first
@@ -33,3 +33,6 @@ class Student(Person):
 stu1 = Student("Julia", "Smith", 3.6)
 stu1.full_name = "Olivia Ross"
 print(stu1)
+
+#full_name.setter olmasa deger atayamazdik
+# setter fonksiyonu olmadan full_name'a değer atamak mümkün değildir, ancak doğrudan first ve last'ı değiştirebilirsiniz. Setter fonksiyonu, full_name üzerinden ismi güncellemeyi sağlar.
