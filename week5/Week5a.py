@@ -28,7 +28,7 @@ win.iconbitmap("python.ico")
 
 btn_a = ttk.Button(win, text="Button A")
 btn_b = ttk.Button(win, text="Button B")
-lbl = ttk.Label(win, justify="center") #verielcek bilgi metnini ortalar
+lbl = ttk.Label(win, justify="center") #verilecek bilgi metnini ortalar
 
 btn_a.pack(pady=(20, 0)) #ustten 20px bosluk
 btn_b.pack(pady=20) #hem ust hem alt 20px bosluk
