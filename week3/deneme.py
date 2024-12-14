@@ -29,19 +29,3 @@
 # label3.grid(row=1, column=1)
 
 # win.mainloop()
-
-import tkinter as tk
-
-win = tk.Tk()
-win.geometry("300x200")
-
-label1 = tk.Label(win, text="Label 1", bg="red")
-label1.grid(row=0, column=0, sticky="nsew")  # Label 1 tüm hücreyi dolduruyor.
-
-label2 = tk.Label(win, text="Label 2", bg="green")
-label2.grid(row=1, column=0, sticky="w")  # Label 2 hücrenin batısına hizalanıyor.
-
-label3 = tk.Label(win, text="Label 3", bg="blue")
-label3.grid(row=1, column=1, sticky="e")  # Label 3 hücrenin doğusuna hizalanıyor.
-
-win.mainloop()
