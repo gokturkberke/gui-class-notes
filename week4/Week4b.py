@@ -21,6 +21,5 @@ menubar.add_cascade(label="File", menu=file_menu, underline=0)
 #file menusunu menu cubuguna ekler
 #label="File": Menü başlığını "File" olarak ayarlar
 #menu=file_menu: Daha önce oluşturulan file_menu (çıkış menüsü) menüsünü bu başlık altına ekler.
-#underline=0: "File" menüsünde ilk harfi (F) altı çizili yapmaz. Eğer underline=0 yerine underline=1 olsaydı, "F" harfi altı çizili olurdu
 #sadece win icin gecerli underline kodu
 win.mainloop()

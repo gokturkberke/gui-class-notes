@@ -19,7 +19,7 @@ def convert(): #deger donusturme fonksiyonu
 # Main window
 win = tk.Tk()
 win.title("Week 4")
-win.geometry("300x200+400+100")
+win.geometry("400x300+400+100")
 win.iconbitmap("python.ico")
 win.resizable(False, False)
 
