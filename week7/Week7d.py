@@ -33,7 +33,7 @@ class ListGrades(tk.Tk):
         self.tv.heading("grade", text="Grade", anchor="center")
 
         # Configure each column.
-        self.tv.column("id", anchor="center", width=45, stretch=False) #stretch false sutunun ozelliklerini ayarlar
+        self.tv.column("id", anchor="center", width=45, stretch=False) #stretch false means the column will not expand to fill extra space
         self.tv.column("fname", anchor="w", width=135)
         self.tv.column("lname", anchor="w", width=135)
         self.tv.column("grade", anchor="center", width=135)

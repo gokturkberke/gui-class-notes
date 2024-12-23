@@ -23,7 +23,9 @@ class ListGrades(tk.Tk):
         # selectmode: extended(default), browse, none
         self.tv = ttk.Treeview(self, height=10, show="headings")
         self.tv["columns"] = ("id", "fname", "lname", "grade")
-        self.tv["selectmode"] = "browse"
+        self.tv["selectmode"] = "browse" #Only one item can be selected at a time.
+        #extended = multiple row selection
+        #none = no row selection
 
         # Add headings for each column.
         self.tv.heading("id", text="ID", anchor="center")
@@ -44,6 +46,7 @@ class ListGrades(tk.Tk):
     def create_layout(self):
         self.tv.pack(fill="both", expand=True)
         self.tv_scroll.place(relx=1, rely=0, relheight=1, anchor="ne") # Kaydırma çubuğunu Treeview'in sağına konumlandırıyoruz.
+        
 
 
     def list_grades(self):
