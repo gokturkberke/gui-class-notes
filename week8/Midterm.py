@@ -12,8 +12,8 @@ class Midterm(tk.Tk):
         self.title("Midterm")
         self.iconbitmap("python.ico")
         self.resizable(False, False)
-        self.weight = tk.IntVar()
-        self.activity_level = tk.StringVar(value="Sedentary")
+        self.weight = tk.IntVar() #creates integer valuable store the weight input
+        self.activity_level = tk.StringVar(value="Sedentary") #sedentary default value
         self.climate = tk.StringVar(value="Mild")
         self.create_widgets()
         self.create_layout()
@@ -32,8 +32,8 @@ class Midterm(tk.Tk):
 
         self.btn_calc = ttk.Button(self, text="Calculate", command=self.calc)
 
-        self.bind("<Return>", self.do_calc)
-        self.bind("<Escape>", self.exit_app)
+        self.bind("<Return>", self.do_calc) #binds the Enter key to the do_calc method
+        self.bind("<Escape>", self.exit_app) #binds the Escape key to the exit_app method
 
     def create_layout(self):
         self.lbl_title.pack(pady=15)
@@ -54,7 +54,7 @@ class Midterm(tk.Tk):
             if self.weight.get() <= 0:
                 msg.showerror("Invalid Input", "Weight must be a positive number.")
                 return False
-        except tk.TclError:
+        except tk.TclError: # Catch exception if weight is not a valid integer
             msg.showerror("Invalid Input", "Please enter a valid integer for weight.")
             return False
 
