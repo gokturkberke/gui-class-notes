@@ -1,6 +1,4 @@
-# Install customtkinter: https://customtkinter.tomschimansky.com/
 # Scrollable frame
-
 import customtkinter as ctk
 
 
@@ -34,9 +32,9 @@ class CTkApp(ctk.CTk):
 
     def remove_labels(self):
         for l in self.labels:
-            l.destroy()
-        self.labels.clear()
-        self.frame1.configure(label_text="List of Labels")
+            l.destroy() #her etiketi kaldirir
+        self.labels.clear() #etiket listesini sifirlar
+        self.frame1.configure(label_text="List of Labels") #Çerçevenin başlık metni sıfırlanır ve "List of Labels" olarak ayarlanır.
 
 
 app = CTkApp()

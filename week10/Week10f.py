@@ -1,13 +1,11 @@
-# Install customtkinter: https://customtkinter.tomschimansky.com/
 # Unit converter
-
 import customtkinter as ctk
 
 
 class UnitConverter(ctk.CTk):
     def __init__(self):
         super().__init__()
-        ctk.set_default_color_theme("blue")  # "blue" (standard), "green", "dark-blue"
+        ctk.set_default_color_theme("green")  # "blue" (standard), "green", "dark-blue"
         ctk.set_appearance_mode("light")
         self.geometry("310x200")
         self.title("Unit Converter")

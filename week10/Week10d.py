@@ -21,7 +21,7 @@ class CTkApp(ctk.CTk):
         self.tabview1 = ctk.CTkTabview(self.frame1, anchor="sw")  # anchor sets the placement of the segmented tab buttons.
         self.tab1 = self.tabview1.add("Tab 1")
         self.tab2 = self.tabview1.add("Tab 2")
-        self.tabview1.set("Tab 2")
+        self.tabview1.set("Tab 2") #baslangicta acik olacak sekme tab2 olarak belirlendi.
         self.lbl1 = ctk.CTkLabel(self.tab1, text="This is tab 1.")
         self.lbl2 = ctk.CTkLabel(self.tab2, text="This is tab 2.")
         self.btn1 = ctk.CTkButton(self.tab2, text="Exit", command=lambda : self.destroy())
