@@ -16,7 +16,7 @@ class EditGrade(tk.Toplevel):
         self.resizable(False, False)
         self.parent = parent
         self.rowid = rowid # ID of the Treeview item that is currently being edited.
-        self.gid = gid
+        self.gid = gid # ID of the record in the database.
         self.fname = tk.StringVar(value=fname)
         self.lname = tk.StringVar(value=lname)
         self.grade = tk.IntVar(value=grade)
@@ -60,7 +60,7 @@ class EditGrade(tk.Toplevel):
             return
             
         try:
-            # Update the database.
+            # Update the database. (alinan degerler(self.gid, self.fname.get(), self.lname.get(), self.grade.get()) veritabanina gonderilir)
             self.db.update_grade(gid=self.gid, fname=self.fname.get(), lname=self.lname.get(), grade=self.grade.get())
             # Update the Treeview row (that is in the parent window).
             self.parent.tv.item(self.rowid, values=(self.gid, self.fname.get(), self.lname.get(), self.grade.get()))

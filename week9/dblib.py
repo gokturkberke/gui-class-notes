@@ -3,7 +3,8 @@ import sqlite3
 class GradeBookDatabase:
 
     def __init__(self, db_name="gradebook.db"):
-        self.db_name = db_name
+        self.db_name = db_name 
+        #veritabani ismini alir  ve sinifi baslatir
 
     def create_table(self):
         conn = sqlite3.connect(self.db_name)
@@ -37,6 +38,7 @@ class GradeBookDatabase:
 
         for item in data:
             cur.execute("insert into GradeBook(fname, lname, grade) values(?, ?, ?)", item)
+            #values(?,?,?) means that we are going to insert 3 values (parametre yer tutucuları olarak kullanılır. Bu yer tutucular, gerçek kullanıcı verisinin sorguya yerleştirilmeden önce düzgün bir şekilde işlenmesini sağlar) 
 
         conn.commit()
         conn.close()
@@ -52,7 +54,7 @@ class GradeBookDatabase:
         conn = sqlite3.connect(self.db_name)
         cur = conn.cursor()
         cur.execute("select * from GradeBook")
-        grade_list = cur.fetchall()
+        grade_list = cur.fetchall() #fetchall() methodu, sorgudan dönen tüm satırları alır ve bir liste olarak döndürür.
         conn.close()
 
         return grade_list
@@ -61,7 +63,7 @@ class GradeBookDatabase:
         conn = sqlite3.connect(self.db_name)
         cur = conn.cursor()
         cur.execute("select count(*), avg(grade) from GradeBook")
-        result = cur.fetchone()
+        result = cur.fetchone() #fetchone() methodu, sorgudan yalnızca bir satır alır ve bu satırı bir demet olarak döndürür.
         conn.close()
 
         return result
