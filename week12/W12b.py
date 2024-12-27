@@ -46,11 +46,11 @@ class AddNewGrade(tk.Tk):
         # Bind mouse right-click event to display the context menu
         self.bind("<Button-3>", self.show_context_menu)
 
-    def show_context_menu(self, event):
+    def show_context_menu(self, event): # Sağ tıklama menüsünü fare imlecinin bulunduğu yerde açar.
         self.context_menu.post(event.x_root, event.y_root)
 
-    def reload_gui_text(self):
-        self.i18n = langpack_v1.I18N(self.selected_language.get())
+    def reload_gui_text(self): # Seçilen dile göre arayüz metinlerini yeniden yükler ve günceller.
+        self.i18n = langpack_v1.I18N(self.selected_language.get()) # Yeni dil çevirilerini yükler.
         self.title(self.i18n.title)
         self.lbl_fname.configure(text=self.i18n.fname)
         self.lbl_lname.configure(text=self.i18n.lname)

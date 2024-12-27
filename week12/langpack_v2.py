@@ -4,7 +4,7 @@ import glob
 
 
 class I18N:
-    def __init__(self, language_code):
+    def __init__(self, language_code): # Verilen dil kodunun desteklenen diller listesinde olup olmadığını kontrol eder.
         if language_code in self.get_available_languages():
             self.translations = self.load_data_from_file(language_code)
         else:

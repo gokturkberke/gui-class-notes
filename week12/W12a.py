@@ -3,7 +3,7 @@
 
 import tkinter as tk
 from tkinter import ttk
-import langpack_v1
+import langpack_v1 # Custom module to manage translations 
 
 class AddNewGrade(tk.Tk):
 
@@ -11,7 +11,7 @@ class AddNewGrade(tk.Tk):
         super().__init__()
         self.i18n = langpack_v1.I18N("en") # Load language translations
         self.geometry("330x165+550+250")
-        self.title(self.i18n.title)
+        self.title(self.i18n.title) # Set the window title from the translations
         self.iconbitmap("python.ico")
         self.resizable(False, False)
         self.create_widgets()
