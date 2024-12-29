@@ -4,11 +4,11 @@ import dblib
 
 class ToDoList(ttk.Window):
     def __init__(self):
-        super().__init__(themename="litera")
+        super().__init__(themename="litera") # Set the theme (litera)
         self.geometry("600x720")
         self.title("To-Do List App")
-        self.db = dblib.ToDoDatabase()
-        self.status_var = ttk.IntVar()
+        self.db = dblib.ToDoDatabase() #initalizing the database
+        self.status_var = ttk.IntVar() #variable to track the status of the checkbutton
         self.create_widgets()
         self.create_layout()
         self.mainloop()
@@ -38,16 +38,16 @@ class ToDoList(ttk.Window):
         self.refresh_list()
 
     def create_layout(self):
-        # Place Labelframe widgets
+        # Place Labelframe widgets (frames)
         self.frm_add.pack(fill="x", padx=15, pady=(15, 0))
         self.frm_list.pack(fill="both", expand=True, padx=15, pady=(15, 0))
         self.frm_actions.pack(fill="x", padx=15, pady=15)
 
-        # Place entry and add button widgets
+        # Place entry and add button widgets (inside the "Add To-Do Item" Labelframe)
         self.entry_item.pack(side="left", padx=(15, 0), pady=15, fill="x", expand=True)
         self.btn_add.pack(side="right", padx=15, pady=15)
 
-        # Place the Treeview widget
+        # Place the Treeview widget (inside the "To-Do List" Labelframe)
         self.tv.pack(fill="both", expand=True, padx=15, pady=15)
 
         # Place delete button and status checkbutton widgets
@@ -78,9 +78,9 @@ class ToDoList(ttk.Window):
     def refresh_list(self):
         # Clear the Treeview content
         for item in self.tv.get_children():
-            self.tv.delete(item)
+            self.tv.delete(item) # Delete all items
 
-        # Fetch updated data and populate the Treeview
+        # Fetch(gidip getirmek) updated data and populate the Treeview
         for row in self.db.get_items():
             self.tv.insert(parent="", index="end", iid=row[0], values=(row[1], row[2]))
 
@@ -97,13 +97,13 @@ class ToDoList(ttk.Window):
         if item:
             self.db.add_item(item)
             self.refresh_list()
-            self.entry_item.delete(0, "end")
-            self.entry_item.focus_set()
+            self.entry_item.delete(0, "end") # Clear the entry widget
+            self.entry_item.focus_set() # Set the focus back to the entry widget
 
     def delete_item(self):
         selected_item = self.tv.selection()
         if selected_item:
-            item_id = int(selected_item[0])
+            item_id = int(selected_item[0]) # Get the item ID
             self.db.delete_item(item_id)
             self.refresh_list()
 
@@ -120,9 +120,11 @@ class ToDoList(ttk.Window):
             self.tv.selection_set(selected_item) # Keep the current item selected
 
     def import_data(self):
+        # Placeholder for importing To-Do items (functionality not implemented yet)
         pass
 
     def export_data(self):
+        # Placeholder for exporting To-Do items (functionality not implemented yet)
         pass
 
 

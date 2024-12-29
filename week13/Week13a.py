@@ -1,4 +1,5 @@
-from openpyxl import Workbook
+from openpyxl import Workbook #Excel dosyalarını oluşturmak ve düzenlemek için kullanılır.
+
 
 # Create a new instance of a workbook
 # There will be one empty worksheet in it (default)
@@ -19,10 +20,10 @@ wb.create_sheet("Second Sheet")
 # Get the reference of the worksheet by its title
 ws2 = wb["Second Sheet"]
 
-# Assign a value to cell B3 (in worksheet "Second Sheet")
+# İkinci çalışma sayfasındaki B3 hücresine "New Value" değerini atar.
 ws2.cell(row=3, column=2, value="New Value")  # ws2["B3"].value = "New Value"
 # Assign an Excel formula to cell C5 (in worksheet "Second Sheet")
-ws2["C5"].value = "=SUM(3, 5)"
+ws2["C5"].value = "=SUM(3, 5)" # 3 + 5 = 8
 
-# Save the workbook
-wb.save("wb1.xlsx")
+# Çalışma kitabını "wb1.xlsx" adında bir dosya olarak kaydeder.
+wb.save("wb1.xlsx") 
