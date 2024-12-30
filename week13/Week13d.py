@@ -43,8 +43,8 @@ class ToDoList(ttk.Window):
         self.entry_item.bind("<Return>", lambda e : self.add_item())
 
         # Event bindings for the Import / Export functionalities
-        self.bind("<Control-i>", lambda e : self.import_data())
-        self.bind("<Control-e>", lambda e : self.export_data())
+        self.bind("<Control-i>", lambda e : self.import_data()) # Ctrl + I: Veri içe aktar.
+        self.bind("<Control-e>", lambda e : self.export_data()) # Ctrl + E: Veri dışa aktar.
 
         # Populate the Treeview
         self.refresh_list()
@@ -66,11 +66,11 @@ class ToDoList(ttk.Window):
         self.btn_delete.pack(side="left", padx=15, pady=15)
         self.cbtn_status.pack(side="right", padx=15, pady=15)
 
-    def enable_actions(self):
+    def enable_actions(self): # Treeview seçim yapıldığında düğmeler etkinleştirilir.
         self.btn_delete.configure(state="normal")
         self.cbtn_status.configure(state="normal")
 
-    def disable_actions(self):
+    def disable_actions(self): # Treeview seçim yapılmadığında düğmeler devre dışı bırakılır.
         self.btn_delete.configure(state="disabled")
         self.cbtn_status.configure(state="disabled")
 
@@ -105,7 +105,7 @@ class ToDoList(ttk.Window):
             self.disable_actions()
 
     def add_item(self):
-        item = self.entry_item.get().strip()
+        item = self.entry_item.get().strip() # Giriş alanındaki metni alır ve boşlukları kırpar.
         if item:
             self.db.add_item(item)
             self.refresh_list()
@@ -131,7 +131,7 @@ class ToDoList(ttk.Window):
             self.refresh_list()
             self.tv.selection_set(selected_item) # Keep the current item selected
 
-    def import_data(self):
+    def import_data(self): # Veri içe aktarımı için dosya seçme iletişim kutusunu açar.
         file_filter = (("Excel files", "*.xlsx"),
                        ("All files", "*.*"))
         source_file = fd.askopenfile(title="Choose file", filetypes=file_filter)
@@ -140,10 +140,10 @@ class ToDoList(ttk.Window):
             # Load the source file
             wb = load_workbook(source_file.name)
             ws1 = wb.active
-            skip_first = True
+            skip_first = True # Skip the header row
 
             # Read the file content
-            for row in ws1.iter_rows(values_only=True):
+            for row in ws1.iter_rows(values_only=True): #kodun amaci baslik satireini atlamak ve yalnizca veri iceren satirlari islemek
                 if skip_first: # Skip the header row
                     skip_first = False
                     continue
@@ -161,7 +161,7 @@ class ToDoList(ttk.Window):
             # Re-populate the Treeview
             self.refresh_list()
 
-    def export_data(self):
+    def export_data(self):# Verileri bir Excel dosyasına dışa aktarır.
         if not self.tv.get_children():
             msg.show_error(title="Export Data", message="No data available to export.")
             return
@@ -177,8 +177,8 @@ class ToDoList(ttk.Window):
         row_count = 2
         for item_id in self.tv.get_children():
             # print(self.tv.item(item_id)["values"])
-            ws.cell(row=row_count, column=1, value=self.tv.item(item_id)["values"][0])
-            ws.cell(row=row_count, column=2, value=self.tv.item(item_id)["values"][1])
+            ws.cell(row=row_count, column=1, value=self.tv.item(item_id)["values"][0]) # İlk sütuna "Item" eklenir
+            ws.cell(row=row_count, column=2, value=self.tv.item(item_id)["values"][1]) # İkinci sütuna "Status" eklenir
             row_count += 1
 
         # Add summary calculations
@@ -187,7 +187,7 @@ class ToDoList(ttk.Window):
         not_completed_items_row = row_count + 3
 
         ws.cell(row=total_items_row, column=1, value="Total items:")
-        ws.cell(row=total_items_row, column=2, value=f"=COUNTA(A2:A{row_count - 1})")
+        ws.cell(row=total_items_row, column=2, value=f"=COUNTA(A2:A{row_count - 1})")  #A2’den başlayarak görevlerin toplam sayısını hesaplar.
 
         ws.cell(row=completed_items_row, column=1, value="Completed items:")
         ws.cell(row=completed_items_row, column=2, value=f"=COUNTIF(B2:B{row_count - 1}, \"Done\")")
