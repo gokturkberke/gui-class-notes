@@ -11,5 +11,5 @@ plt.plot(x_values, y_values)
 # For explicit Figure and Axes manipulation:
 # fig, ax = plt.subplots() # Create a Figure with one Axes
 # ax.plot(x_values, y_values)
-
+#bir cizgi grafigi cizer ve noktalari birlestirir 1 ile 5 i 2 ile 7yi ...
 plt.show()

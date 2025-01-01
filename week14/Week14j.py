@@ -163,7 +163,7 @@ class ToDoList(ttk.Window):
                     # Update the item status to "Done" only if the current status is "Done".
                     # No action is taken otherwise as the default status is "Pending" in the database level. 
                     if status == "Done":
-                        self.db.update_status(self.db.get_items()[-1][0], "Done")
+                        self.db.update_status(self.db.get_items()[-1][0], "Done") #get the last element id
 
             # Re-populate the Treeview
             self.refresh_list()

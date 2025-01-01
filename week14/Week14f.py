@@ -8,7 +8,7 @@ y_values = [2, 3, 5, 7, 11]
 sizes = [50, 100, 200, 300, 400]
 colors = ["red", "green", "blue", "orange", "lime"]
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots() # Bir figure (grafik alanı) ve bir axes (çizim yapılacak alan) oluşturuluyor
 ax.scatter(x_values, y_values, s=sizes, c=colors)
 
 ax.set_title("Colored Scatter Plot")
